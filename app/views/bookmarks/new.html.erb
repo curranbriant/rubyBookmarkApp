@@ -1,0 +1,18 @@
+<h1>Save A Bookmark</h1>
+
+
+
+<%= form_with scope: :bookmark, url: bookmarks_path, local: true do |form| %>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= form.label :URL %><br>
+    <%= form.text_area :URL %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
