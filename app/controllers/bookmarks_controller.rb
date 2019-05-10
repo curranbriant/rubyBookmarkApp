@@ -1,5 +1,10 @@
 class BookmarksController < ApplicationController
 
+    def index
+        @bookmarks = Bookmark.all
+      end
+     
+
     def show
         @bookmark = Bookmark.find(params[:id])
       end
@@ -7,12 +12,31 @@ class BookmarksController < ApplicationController
     def new
     end
 
+    def edit
+      @bookmark = Bookmark.find(params[:id])
+    end
+    def update
+      @bookmark = Bookmark.find(params[:id])
+     
+      if @bookmark.update(bookmark_params)
+        redirect_to @bookmark
+      else
+        render 'edit'
+      end
+    end
+     
     def create
         @bookmark = Bookmark.new(bookmark_params)
         
-        @bookmark.save
+        if @bookmark.save
         redirect_to @bookmark
+    else
+        render 'new'
       end
+    end
+
+  
+     
     
       private
       def bookmark_params

@@ -1,0 +1,23 @@
+
+<h1>Listing bookmarks</h1>
+
+
+<%= link_to 'New Bookmark', new_bookmark_path %>
+
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @bookmarks.each do |bookmark| %>
+    <tr>
+      <td><%= bookmark.title %></td>
+      <td><%= bookmark.URL %></td>
+      <td><%= link_to 'Show', bookmark_path(bookmark) %></td>
+      <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
+    </tr>
+  <% end %>
+</table>
