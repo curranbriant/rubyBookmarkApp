@@ -1,5 +1,11 @@
 class BookmarksController < ApplicationController
 
+  http_basic_authenticate_with name: "Brian", password: "secret", except: [:index, :show]
+ 
+  def index
+    @bookmarks = Bookmark.all
+  end
+ 
     def index
         @bookmarks = Bookmark.all
       end
@@ -9,8 +15,9 @@ class BookmarksController < ApplicationController
         @bookmark = Bookmark.find(params[:id])
       end
      
-    def new
-    end
+      def new
+        @bookmark = Bookmark.new(params[:bookmark])
+      end
 
     def edit
       @bookmark = Bookmark.find(params[:id])
