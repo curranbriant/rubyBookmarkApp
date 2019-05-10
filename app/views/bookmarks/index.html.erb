@@ -8,7 +8,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Text</th>
+    <th>Link</th>
     <th colspan="2"></th>
   </tr>
  
@@ -18,6 +18,9 @@
       <td><%= bookmark.URL %></td>
       <td><%= link_to 'Show', bookmark_path(bookmark) %></td>
       <td><%= link_to 'Edit', edit_bookmark_path(bookmark) %></td>
+      <td><%= link_to 'Delete', bookmark_path(bookmark),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

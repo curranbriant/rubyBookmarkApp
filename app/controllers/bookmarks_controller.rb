@@ -34,6 +34,12 @@ class BookmarksController < ApplicationController
         render 'new'
       end
     end
+    def destroy
+      @bookmark = Bookmark.find(params[:id])
+      @bookmark.destroy
+     
+      redirect_to bookmarks_path
+    end
 
   
      

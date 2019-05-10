@@ -18,5 +18,7 @@
   </p>
  
 <% end %>
- 
+ <%= link_to 'Destroy', bookmark_path(@bookmark),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', bookmarks_path %>
