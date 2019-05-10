@@ -1,6 +1,5 @@
 class BookmarksController < ApplicationController
 
-  http_basic_authenticate_with name: "Brian", password: "secret", except: [:index, :show]
  
   def index
     @bookmarks = Bookmark.all
@@ -44,7 +43,7 @@ class BookmarksController < ApplicationController
     def destroy
       @bookmark = Bookmark.find(params[:id])
       @bookmark.destroy
-     
+  
       redirect_to bookmarks_path
     end
 
